@@ -11,8 +11,8 @@ function init(){
 
 	sortBulle(draw, tab, size, height, width);
 	var draw2 = SVG().addTo('#recins').size(width, height)
-	sortInsert(draw2, tab, size, height, width);
-	var draw3 = SVG().addTo('#recins').size(width, height)
+	sortInsert(draw2, tab2, size, height, width);
+	var draw3 = SVG().addTo('#recrapide').size(width, height)
 	//sortInsert(draw3, tab2, size, height, width);
 
 	
