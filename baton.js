@@ -92,7 +92,7 @@ function sortRapide(draw, tab, size, height, width){
 	}
 }
 
-quickSort(tab, low, high)
+function quickSort(tab, low, high)
 {
     if (low < high){
         /* pi is partitioning index, arr[pi] is now
@@ -103,7 +103,7 @@ quickSort(tab, low, high)
     }
 }
 
-partition (arr, low, high){
+function partition (arr, low, high){
     // pivot (Element to be placed at right position)
     var pivot = arr[high];  
     var i = (low - 1)  // Index of smaller element
