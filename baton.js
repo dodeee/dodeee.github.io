@@ -86,7 +86,7 @@ async function sortInsert(draw, t, size, height, width){
 }
 
 function sortRapide(draw, tab, size, height, width){
-	tab = quickSort(tab, 0, size -1);
+	quickSort(tab, 0, size -1);
 	for(var z = 0; z < size; z++){
 		console.log("tab : "+t[z]);
 	}
@@ -100,8 +100,6 @@ quickSort(tab, low, high)
         var pi = partition(tab, low, high);
         quickSort(tab, low, pi - 1);  // Before pi
         quickSort(tab, pi + 1, high); // After pi
-    } else{
-    	return tab;
     }
 }
 
