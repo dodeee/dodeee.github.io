@@ -5,15 +5,16 @@ function init(){
 	// create SVG document and set its size
 	var draw = SVG().addTo('#rec').size(width, height)
 
-	var size = 100;
+	var size = 20;
 	var tab = randomTab(size, height);
 	var tab2 = randomTab(size, height);
+	var tab3 = randomTab(size, height);
 
 	sortBulle(draw, tab, size, height, width);
 	var draw2 = SVG().addTo('#recins').size(width, height)
 	sortInsert(draw2, tab2, size, height, width);
 	var draw3 = SVG().addTo('#recrapide').size(width, height)
-	//sortInsert(draw3, tab2, size, height, width);
+	sortRapide(draw3, tab3, size, height, width);
 
 	
 }
@@ -81,10 +82,50 @@ async function sortInsert(draw, t, size, height, width){
         /* Insertion de la valeur stockée à la place vacante */
         t[y] = elementInsere;
     }
+
+}
+
+function sortRapide(draw, tab, size, height, width){
+	tab = quickSort(tab, 0, size -1);
 	for(var z = 0; z < size; z++){
 		console.log("tab : "+t[z]);
 	}
 }
+
+quickSort(tab, low, high)
+{
+    if (low < high){
+        /* pi is partitioning index, arr[pi] is now
+           at right place */
+        var pi = partition(tab, low, high);
+        quickSort(tab, low, pi - 1);  // Before pi
+        quickSort(tab, pi + 1, high); // After pi
+    } else{
+    	return tab;
+    }
+}
+
+partition (arr, low, high){
+    // pivot (Element to be placed at right position)
+    var pivot = arr[high];  
+    var i = (low - 1)  // Index of smaller element
+    for (var j = low; j <= high- 1; j++){
+        // If current element is smaller than the pivot
+        if (arr[j] < pivot){
+            i++;    // increment index of smaller element
+            var tmp = arr[i];//swap arr[i] and arr[j]
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
+    }
+    var tmp = arr[i+1];
+    arr[i+1] = arr[high];
+    arr[high] = tmp;
+    //swap arr[i + 1] and arr[high])
+    return (i + 1);
+}
+
+
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
