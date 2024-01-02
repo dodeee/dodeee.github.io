@@ -1,4 +1,4 @@
-function init(){
+function initSort(){
 	// define document width and height
 	var width = 1000, height = 400;
 
@@ -50,7 +50,7 @@ function drawTab(svgDoc, tab, size, globHeight, globWidth, nb, id_elem_comp){
 				permut = true;
 				draw.clear();
 				drawTab(draw, tab, size, height, width, nbacces, "nbbulle");
-				await sleep(5);
+				await sleep(50);
 				//var x = await resolveAfter2Seconds(1);
 			}
 		}
@@ -76,7 +76,7 @@ async function sortInsert(draw, t, size, height, width){
             t[y] = t[y - 1];
             draw.clear();
 			drawTab(draw, t, size, height, width, nbaccesIns, "nbinsert");
-			await sleep(5);
+			await sleep(50);
 			nbaccesIns++;
         }
         /* Insertion de la valeur stockée à la place vacante */
@@ -88,7 +88,7 @@ async function sortInsert(draw, t, size, height, width){
 function sortRapide(draw, tab, size, height, width){
 	quickSort(tab, 0, size -1);
 	for(var z = 0; z < size; z++){
-		console.log("tab : "+t[z]);
+		console.log("tab : "+tab[z]);
 	}
 }
 

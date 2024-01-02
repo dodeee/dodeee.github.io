@@ -8,7 +8,7 @@ var cardHeight = height*5+padding*4+ cardPadding;
 var greenBoxArray = new Array(0);
 var blackBoxArray = new Array(0);
 
-function init(){
+function initCards(){
 	// define document width and height
 	var width = 1000, height = 4000;
 
