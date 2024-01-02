@@ -10,13 +10,13 @@ var blackBoxArray = new Array(0);
 
 function initCards(){
 	// define document width and height
-	var width = 1000, height = 4000;
+	var width = 1000, height = 40000;
 
 	// create SVG document and set its size
 	var drawer = SVG().addTo('#card-draw').size(width, height)
 
 	var size = 20;
-    for(var i = 0; i< 10;i++){
+    for(var i = 0; i< 100;i++){
         var cardArray = createCard(drawer, i, false);
         var cardArray = createCard(drawer, i, true);
     }
