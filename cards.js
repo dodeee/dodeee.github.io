@@ -1,7 +1,7 @@
 
 var width = 40;
 var height = 32
-var padding = 5;
+var padding = 4;
 var cardPadding = 20
 var cardWidth = width*5+padding*4+ cardPadding;
 var cardHeight = height*5+padding*4+ cardPadding;
@@ -48,7 +48,6 @@ function createCard(drawer, cardNb, isVerso){
             greenBoxNb+=3;
             var shuffledBlack = shuffleArray(blackBoxArray);
             cardArray[shuffledBlack[0]] = 0;
-            console.log("blackboxshuffle : "+shuffledBlack)
             blackBoxNb++;
             // greenBoxArray = new Array(0);
             // blackBoxArray = new Array(0);
@@ -71,10 +70,8 @@ function createCard(drawer, cardNb, isVerso){
                 }
             }
         }
-        console.log(greenBoxNb + " , " + blackBoxNb);
     }
     drawCard(cardArray, drawer, cardNb, isVerso);
-    console.log(cardArray);
     return cardArray;
 }
 
@@ -93,19 +90,28 @@ function drawCard(cardArray, drawer, cardNb, isVerso){
     cardArray.forEach(square => {
         if(square == 0){
             var rect = drawer.rect(width, height).attr({ fill: "rgb(0, 0, 0)"});
-		    rect.x(width * i);
+            rect.attr("stroke-width", 1);
+            rect.attr("stroke", "rgb(200, 200, 200)");
+            //Drawing the cross
+            var line = drawer.line(rectX+padding*2+(width-height)/2, rectY+padding*2, rectX+width-padding*2-(width-height)/2, rectY+height-padding*2);
+            line.stroke({ color: '#fff', width: 2, linecap: 'round' })
+            var line = drawer.line(rectX+width-padding*2-(width-height)/2, rectY+padding*2, rectX+padding*2+(width-height)/2, rectY+height-padding*2);
+            line.stroke({ color: '#fff', width: 2, linecap: 'round' })
         } else if(square == 1){
-            var rect = drawer.rect(width, height).attr({ fill: "rgb(0, 200, 0)"});
-		    rect.x(width * i);
+            var rect = drawer.rect(width, height).attr({ fill: "rgb(50, 150, 50)"});
+             //Drawing the cross
+             var line = drawer.line(rectX+width/2, rectY+padding*2, rectX+width/2, rectY+height-padding*2);
+             line.stroke({ color: '#fff', width: 2, linecap: 'round' })
+             var line = drawer.line(rectX+padding*2+(width-height)/2, rectY+height/2, rectX-padding*2+width-(width-height)/2, rectY+height/2);
+             line.stroke({ color: '#fff', width: 2, linecap: 'round' })
         } else {
-            var rect = drawer.rect(width, height).attr({ fill: "rgb(200, 200, 200)"});
-		    rect.x(width * i);
+            var rect = drawer.rect(width, height).attr({ fill: "rgb(200, 173, 165)"});
         }
         
        
         rect.x(rectX);
         rect.y(rectY);
-        rect.radius(width/6);
+        rect.radius(width/8);
         rectX += width + padding;
         if((i+1)%5 == 0){
             rectY+=height + padding;
