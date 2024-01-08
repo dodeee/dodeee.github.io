@@ -20,11 +20,11 @@ function initCards(){
         for(var i = 0; i< 5;i++){
 
             var cardArray = createCard(drawer, i, false, 0);
-            var cardArray = createCard(drawerVerso, i, true, 0);
+            var cardArray = createCard(drawerVerso, i, true, 2);
             var cardArray = createCard(drawer, i, false, 1);
             var cardArray = createCard(drawerVerso, i, true, 1);
             var cardArray = createCard(drawer, i, false, 2);
-            var cardArray = createCard(drawerVerso, i, true, 2);
+            var cardArray = createCard(drawerVerso, i, true, 0);
         }
     }
 	// var cardArray = createCard(drawer, 1, false);
